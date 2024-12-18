@@ -60,4 +60,4 @@ jobs:
           app-name: "demoAzure"
           slot-name: "Production"
           publish-profile: ${{ secrets.DEMOAZURE }}
-          package: ./build
+          package: .
