@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/myapp",
   reactStrictMode: true,
   distDir: "build",
   output: "standalone",
