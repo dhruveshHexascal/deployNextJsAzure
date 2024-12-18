@@ -25,7 +25,7 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip ./*
+        run: zip -r release.zip ./public ./build ./node_modules ./package.json ./package-lock.json ./*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -47,7 +47,7 @@ jobs:
           name: node-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip release.zip -d ./deploy
 
       - name: "Deploy to Azure Web App"
         id: deploy-to-webapp
@@ -56,4 +56,4 @@ jobs:
           app-name: "demoAzure"
           slot-name: "Production"
           publish-profile: ${{ secrets.DEMOAZURE }}
-          package: ./build/standalone
+          package: ./deploy
