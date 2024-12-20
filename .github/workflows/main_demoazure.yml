@@ -18,6 +18,21 @@ jobs:
         with:
           node-version: "20.x"
 
+      # Export environment variables
+      - name: Export environment variables
+        run: |
+          echo "NEXT_PUBLIC_API_PAYMENT_CALLBACK_URL=${{ secrets.NEXT_PUBLIC_API_PAYMENT_CALLBACK_URL }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_API_SUBSCRIPTION_KEY=${{ secrets.NEXT_PUBLIC_API_SUBSCRIPTION_KEY }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_APPINSIGHTS_INSTRUMENTKEY=${{ secrets.NEXT_PUBLIC_APPINSIGHTS_INSTRUMENTKEY }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_KAKAO_HOST=${{ secrets.NEXT_PUBLIC_KAKAO_HOST }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_PAYMENTS_URL_DOMAIN=${{ secrets.NEXT_PUBLIC_PAYMENTS_URL_DOMAIN }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_REDIS_HOST=${{ secrets.NEXT_PUBLIC_REDIS_HOST }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_REDIS_PASSWORD=${{ secrets.NEXT_PUBLIC_REDIS_PASSWORD }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_REDIS_PORT=${{ secrets.NEXT_PUBLIC_REDIS_PORT }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_SESSION_SECRETE=${{ secrets.NEXT_PUBLIC_SESSION_SECRETE }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_TESTER_MODE=${{ secrets.NEXT_PUBLIC_TESTER_MODE }}" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_URL_DOMAIN=${{ secrets.NEXT_PUBLIC_URL_DOMAIN }}" >> $GITHUB_ENV
+
       - name: npm install, build, and test
         run: |
           npm install
