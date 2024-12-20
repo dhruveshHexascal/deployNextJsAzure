@@ -21,7 +21,7 @@ export default function Home() {
             .
           </li>
           <li>Save and see your changes instantly.</li>
-          {/* <li>{process.env.WEBAPP_NAME}</li> */}
+          <li>{process.env.NEXT_PUBLIC_URL_DOMAIN}</li>
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
